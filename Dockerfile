@@ -5,4 +5,4 @@ RUN apk add --update --no-cache git \
     && rm -rf \
          /tmp/* \
          /root/.cache/*
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/bash"]
