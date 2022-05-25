@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.16
 LABEL maintainer="Thomas GUIRRIEC <thomas@guirriec.fr>"
 RUN apk add --update --no-cache git \
       texlive-full \
