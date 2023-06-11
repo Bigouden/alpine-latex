@@ -3,10 +3,25 @@ include:
   - project: "Bigouden/gitlab-ci-templates"
     file: ".gitlab-ci-docker.yml"
 
+.standalone:
+  image:
+    name: $CONTAINER_TEST_IMAGE
+    entrypoint: [""]
+  variables:
+    GIT_STRATEGY: none
+  dependencies: []
+
 stages:
   - Quality
   - Security
   - Build
+  - Commands
   - Inspect
   - Release
   - Clean
+
+Latex:
+  stage: Commands
+  extends: .standalone
+  script:
+    - latex -v
