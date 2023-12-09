@@ -9,7 +9,7 @@ FROM alpine:${ALPINE_VERSION}
 LABEL maintainer="Thomas GUIRRIEC <thomas@guirriec.fr>"
 ENV UID="1000"
 ENV USERNAME="latex"
-# hadolint ignore=DL3013,DL3018,DL3042
+# hadolint ignore=DL3013,DL3018,DL3042,SC2006
 RUN --mount=type=bind,from=builder,source=/tmp,target=/tmp \
     --mount=type=cache,id=apk_cache,target=/var/cache/apk \
     xargs -a /tmp/apk_packages apk --update add \
