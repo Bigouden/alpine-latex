@@ -3,13 +3,12 @@
 ARG ALPINE_VERSION="3.19"
 
 FROM alpine:${ALPINE_VERSION} AS builder
-COPY apk_packages /tmp/
+COPY --link apk_packages /tmp/
 
 FROM alpine:${ALPINE_VERSION}
 LABEL maintainer="Thomas GUIRRIEC <thomas@guirriec.fr>"
 ENV UID="1000"
 ENV USERNAME="latex"
-COPY apk_packages /
 # hadolint ignore=DL3013,DL3018,DL3042
 RUN --mount=type=bind,from=builder,source=/tmp,target=/tmp \
     --mount=type=cache,id=apk_cache,target=/var/cache/apk \
