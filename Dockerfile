@@ -1,6 +1,6 @@
 # kics-scan disable=ae9c56a6-3ed1-4ac0-9b54-31267f51151d,d3499f6d-1651-41bb-a9a7-de925fea487b,
 
-ARG ALPINE_VERSION="3.20"
+ARG ALPINE_VERSION="3.21"
 
 FROM alpine:${ALPINE_VERSION} AS builder
 COPY --link apk_packages /tmp/
